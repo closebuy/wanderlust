@@ -40,3 +40,26 @@ body {
     color: #000;
     padding: 0.2em 0;
 }
+
+.fbLogin {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.fbLogin h1, .fbLogin h3 {
+    margin-left: 30%;
+    width: 40%;
+    text-align: center;
+}
+
+.fb-login-button {
+    margin-left: 44.5%;
+}
+
+.fbLoginButton {
+    margin-left: 36%;
+    height: 69px;
+    width: 320px;
+    background-image: url('../assets/images/fbLoginButton.png');
+}

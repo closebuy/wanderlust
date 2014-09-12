@@ -65,5 +65,16 @@
       </form>
     </div>
   </div>
+  <div class="fbLogin">
+    <h1>or</h1>
+    <!--
+      Below we include the Login Button social plugin. This button uses
+      the JavaScript SDK to present a graphical Login button that triggers
+      the FB.login() function when clicked.
+    -->
+    <div class="fbLoginButton" ng-click="fbLogin()"></div>
+<!--     <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+ -->    <!-- <fb:login-button class="fbLoginButton" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
+  </div>
   <hr>
 </div>
