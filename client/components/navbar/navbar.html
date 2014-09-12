@@ -28,4 +28,23 @@
       </ul>
     </div>
   </div>
+  <div ng-show="show" class="profile-tab">
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTnmliP4-eLmojpvWjVaH6N03mkLH3kckzQakvgoltQVMPkY8YvJA" width="150" />
+    <br />
+    <br />
+    <b>Username:</b> {{ getCurrentUser().name }}
+    <br />
+    <b>Email:</b>  {{ getCurrentUser().email }}
+    <br />
+    <br />
+    <b>In Progress:</b>
+    <br />
+    None
+    <br />
+    <br />
+    <b>Completed:</b>
+    <br />
+    Wonderful Sunset<br />
+    Street Art Explorer
+  </div>
 </div>
