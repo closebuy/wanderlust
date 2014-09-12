@@ -26,4 +26,25 @@ angular.module('wanderlustApp')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
+
+    $scope.fbLogin = function() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+        if(response.status === 'connected') {
+          FB.api('/me', function(response) {
+            Auth.login({
+              email: response.email,
+              password: 'facebook'
+            })
+            .then( function() {
+              // Logged in, redirect to home
+              $location.path('/');
+            })
+            .catch( function(err) {
+              $scope.errors.other = err.message;
+            });
+          });
+        }
+      });
+    };
   });

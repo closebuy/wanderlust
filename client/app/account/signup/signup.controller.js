@@ -34,4 +34,32 @@ angular.module('wanderlustApp')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
+    
+    $scope.fbLogin = function() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+        if(response.status === 'connected') {
+          FB.api('/me', function(response) {
+            Auth.createUser({
+              name: response.first_name,
+              email: response.email,
+              password: 'facebook'
+            })
+            .then(function() {
+              $location.path('/');
+            })
+            .catch( function(err) {
+              err = err.data;
+              $scope.errors = {};
+
+              // Update validity of form fields that match the mongoose errors
+              angular.forEach(err.errors, function(error, field) {
+                form[field].$setValidity('mongoose', false);
+                $scope.errors[field] = error.message;
+              });
+            });
+          });
+        }
+      });
+    };
   });

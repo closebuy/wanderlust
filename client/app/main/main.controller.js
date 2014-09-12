@@ -7,4 +7,12 @@ angular.module('wanderlustApp')
       // Value of $scope.location can be found in tours' $stateParams
       $state.go('tours', $scope.location);
     };
+
+    $scope.checkForAuth = function() {
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          console.log(response);
+        }
+      });
+    }
   });
